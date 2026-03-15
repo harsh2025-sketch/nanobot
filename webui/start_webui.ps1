@@ -11,6 +11,8 @@ function Get-PythonExe {
     $candidates = @(
         (Join-Path $repoRoot ".venv\Scripts\python.exe"),
         (Join-Path $repoRoot ".venv\bin\python.exe"),
+        (Join-Path $repoRoot ".venv\bin\python"),
+        (Join-Path $repoRoot ".venv\bin\python3"),
         "python"
     )
 
