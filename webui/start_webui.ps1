@@ -8,9 +8,7 @@ $outLog = Join-Path $webuiDir "webui.out.log"
 $errLog = Join-Path $webuiDir "webui.err.log"
 
 function Get-PythonExe {
-    $workspaceRoot = Resolve-Path (Join-Path $repoRoot "..\..")
     $candidates = @(
-        (Join-Path $workspaceRoot "nanobot\venv311\Scripts\python.exe"),
         (Join-Path $repoRoot ".venv\Scripts\python.exe"),
         (Join-Path $repoRoot ".venv\bin\python.exe"),
         "python"
@@ -30,7 +28,7 @@ function Get-PythonExe {
         }
     }
 
-    throw "Could not find Python. Checked shared venv and local .venv paths."
+    throw "Could not find Python. Checked local .venv paths and python on PATH."
 }
 
 function Test-AlreadyRunning {
